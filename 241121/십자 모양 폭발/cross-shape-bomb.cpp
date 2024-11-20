@@ -8,19 +8,17 @@ int n;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
 
-void downArr(int n_) {
+void downArr() {
     for (int col = 0; col < n; col++) {
-        int temp[n_] = {};
         int end_temp = n-1;
         for (int row = n-1; row >= 0; row--) {
             if (arr[row][col] != 0) {
-                temp[end_temp] = arr[row][col];
+                arr[end_temp][col] = arr[row][col];
+                if (end_temp != row) {
+                    arr[row][col]=0;
+                }
                 end_temp--;
             }
-        }
-
-        for (int i = 0; i < n; i++) {
-            arr[i][col] = temp[i];
         }
     }
 }
@@ -39,7 +37,7 @@ void bomb(int r, int c) {
         }
         dirNum--;
     }
-    downArr(n);
+    downArr();
 }
 
 void printArray() {
