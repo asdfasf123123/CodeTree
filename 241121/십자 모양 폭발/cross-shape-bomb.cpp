@@ -8,9 +8,9 @@ int n;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
 
-void downArr() {
+void downArr(int n_) {
     for (int col = 0; col < n; col++) {
-        int temp[n] = {};
+        int temp[n_] = {};
         int end_temp = n-1;
         for (int row = n-1; row >= 0; row--) {
             if (arr[row][col] != 0) {
@@ -39,7 +39,7 @@ void bomb(int r, int c) {
         }
         dirNum--;
     }
-    downArr();
+    downArr(n);
 }
 
 void printArray() {
