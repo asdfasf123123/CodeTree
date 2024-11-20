@@ -22,7 +22,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
-        if ((i + 1) % 3 == 0)
+        if ((i + 1) % (n / 3) == 0)
             cout << "\n";
     }
     
