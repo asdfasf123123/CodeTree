@@ -37,14 +37,6 @@ void bomb(int r, int c) {
 
 }
 
-void printArray() {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << arr[i][j] << " ";
-        }
-        cout << "\n";
-    }
-}
 int main() {
     cin >> n;
     for(int i = 0; i < n; i++) {
@@ -56,6 +48,11 @@ int main() {
     cin >> r >> c;
 
     bomb(r- 1, c - 1);
-    printArray();
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
