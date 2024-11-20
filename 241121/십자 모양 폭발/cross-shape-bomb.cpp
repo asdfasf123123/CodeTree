@@ -1,47 +1,40 @@
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 #define MAX_N 100
 
 int arr[MAX_N][MAX_N];
+int temp[MAX_N][MAX_N];
 int n;
 
-int dx[4] = {-1, 0, 1, 0};
-int dy[4] = {0, 1, 0, -1};
-
-void downArr() {
-    for (int col = 0; col < n; col++) {
-        int end_temp = n-1;
-        for (int row = n-1; row >= 0; row--) {
-            if (arr[row][col] != 0) {
-                arr[end_temp][col] = arr[row][col];
-                if (end_temp != row) {
-                    arr[row][col]=0;
-                }
-                end_temp--;
-            }
-        }
-    }
+bool inRange(int x, int y, int centerX, int centerY, int size) {
+    return (x == centerX || y == centerY) && abs(x - centerX) + abs(y - centerY) < size;
 }
 
 void bomb(int r, int c) {
-    r--; c--;
     int size = arr[r][c];
-    int dirNum = 3;
-    arr[r][c] = 0;
-    while (dirNum >= 0) {
-        for (int i = 1; i < size; i++) {
-            int nx = r + dx[dirNum] * i;
-            int ny = c + dy[dirNum] * i;
-            if (nx < n && ny < n && nx >= 0 && ny >= 0) {
-                arr[nx][ny] = 0;
-            }
-            else {
-                break;
-            }
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (inRange(i, j, r, c, size))
+                arr[i][j] = 0;
         }
-        dirNum--;
     }
-    downArr();
+
+    for (int j = 0; j < n; j++) {
+        int next_row = n - 1;
+		for(int i = n - 1; i >= 0; i--) {
+			if(arr[i][j])
+				temp[next_row--][j] = arr[i][j];
+		}
+    }
+	
+    // Step3. grid로 다시 값을 옮겨줍니다.
+    for(int i = 0; i < n; i++)
+		for(int j = 0; j < n; j++)
+            arr[i][j] = temp[i][j];
+
 }
 
 void printArray() {
@@ -62,7 +55,7 @@ int main() {
     int r, c;
     cin >> r >> c;
 
-    bomb(r, c);
+    bomb(r- 1, c - 1);
     printArray();
     return 0;
 }
