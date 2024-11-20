@@ -27,12 +27,16 @@ void bomb(int r, int c) {
     r--; c--;
     int size = arr[r][c];
     int dirNum = 3;
+    arr[r][c] = 0;
     while (dirNum >= 0) {
-        for (int i = 0; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             int nx = r + dx[dirNum] * i;
             int ny = c + dy[dirNum] * i;
             if (nx < n && ny < n && nx >= 0 && ny >= 0) {
                 arr[nx][ny] = 0;
+            }
+            else {
+                break;
             }
         }
         dirNum--;
