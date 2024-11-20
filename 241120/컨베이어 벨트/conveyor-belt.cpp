@@ -1,14 +1,12 @@
 #include <iostream>
 using namespace std;
-#define MAX_N2 200
-
-int arr[MAX_N2];
 
 int main() {
     int n, t;
     cin >> n >> t;
     n *= 2;
     t %= n;
+    int arr[n];
 
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
