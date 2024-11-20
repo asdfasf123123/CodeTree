@@ -2,7 +2,7 @@
 #include <cmath>
 
 using namespace std;
-#define MAX_N 100
+#define MAX_N 200
 
 int arr[MAX_N][MAX_N];
 int temp[MAX_N][MAX_N];
