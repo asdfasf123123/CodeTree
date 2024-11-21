@@ -5,13 +5,6 @@ int n,m;
 int arr[100][100];
 
 void stop_block(int now, int col) {
-    if (now+1 == n-1 && now == -1) {
-        for (int i = col; i < (col + m); i++) {
-        arr[now+1][i] = 1;
-        }
-    }
-    if (now == -1) return;
-
     for (int i = col; i < (col + m); i++) {
         arr[now][i] = 1;
     }
@@ -21,7 +14,11 @@ void block_down(int r) {
     for (int now = -1; now < n-1; now++) {
         int next = now + 1;
         for (int col = r; col < (r + m); col++) {
-            if (next == n - 1 || arr[next][col] != 0) {
+            if (next == n - 1) {
+                stop_block(next, col);
+                return;
+            }
+            if (arr[next][col] != 0) {
                 stop_block(now, col);
                 return;
             }
