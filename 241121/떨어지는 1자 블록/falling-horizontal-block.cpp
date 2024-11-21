@@ -5,6 +5,7 @@ int n,m;
 int arr[100][100];
 
 void stop_block(int now, int col) {
+    if (now == -1) return;
     for (int i = col; i < (col + m); i++) {
         arr[now][i] = 1;
     }
