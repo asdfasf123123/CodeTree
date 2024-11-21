@@ -16,7 +16,7 @@ void block_down(int r) {
         int next = now + 1;
         for (int col = r; col < (r + m); col++) {
             if (arr[next][col] != 0) {
-                stop_block(now, col);
+                stop_block(now, r);
                 return;
             }
         }
