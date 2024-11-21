@@ -21,7 +21,7 @@ void block_down(int r) {
     for (int now = -1; now < n-1; now++) {
         int next = now + 1;
         for (int col = r; col < (r + m); col++) {
-            if (next == n || arr[next][col] != 0) {
+            if (next == n - 1 || arr[next][col] != 0) {
                 stop_block(now, col);
                 return;
             }
