@@ -22,7 +22,7 @@ void move_and_print(int r, int c) {
                 if (maxVal < arr[nx][ny]) {
                     cout << arr[nx][ny] << " ";
                     r = nx; c = ny;
-                    continue;
+                    break;
                 }
             }
         }
