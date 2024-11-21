@@ -11,17 +11,16 @@ void stop_block(int now, int col) {
 }
 
 void block_down(int r) {
-    for (int now = -1; now < n-1; now++) {
+    for (int now = -1; now < n; now++) {
         int next = now + 1;
         for (int col = r; col < (r + m); col++) {
             if (arr[next][col] != 0) {
-                if (next == n - 1) {
-                    stop_block(next, col);
-                } else {
-                    stop_block(now, col);
-                }
+                stop_block(now, col);
                 return;
             }
+        }
+        if (now == n - 1) {
+            stop_block(now,r);
         }
     }
 }
