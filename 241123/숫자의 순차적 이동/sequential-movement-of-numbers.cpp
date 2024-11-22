@@ -3,7 +3,7 @@ using namespace std;
 
 int n, m;
 int arr[21][21];
-int index[21][2];
+int index[401][2];
 
 int dx[] = {-1, -1, 0, 1, 1, 1, 0, -1};
 int dy[] = {0, 1, 1, 1, 0, -1, -1, -1};
