@@ -62,19 +62,23 @@ int main() {
         // 복사하기
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (nextCount[i][j] > 1) nextCount[i][j] = 0;
                 count[i][j] = nextCount[i][j];
             }
         }    
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                if(count[i][j] >= 2)
+                    count[i][j] = 0;
+            }
+        }
     }
 
     int countAll = 0;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (count[i][j] == 1) {
-                countAll++;
-            }
+            countAll += count[i][j];
         }
     }
     
