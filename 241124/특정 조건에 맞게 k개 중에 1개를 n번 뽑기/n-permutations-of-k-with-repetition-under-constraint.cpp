@@ -19,7 +19,7 @@ void choose(int cur_num) {
     }
 
     for (int i = 1; i <= k; i++) {
-        if (cur_num < 3 || (i != ans[ans.size() - 1] && i != ans[ans.size() - 2])) {
+        if (cur_num < 3 || (i != ans[ans.size() - 1] || i != ans[ans.size() - 2])) {
             ans.push_back(i);
             choose(cur_num + 1);
             ans.pop_back();
