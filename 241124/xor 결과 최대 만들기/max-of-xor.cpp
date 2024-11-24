@@ -6,7 +6,7 @@ using namespace std;
 int n, m;
 int nums[20];
 vector<int> ans;
-int maxXor  = 0;
+int maxXor = 0;
 
 int makeXor() {
     int total = ans[0];
@@ -17,7 +17,7 @@ int makeXor() {
 }
 
 void choose(int curNum, int cnt) {
-    if (curNum == n + 1) {
+    if (curNum == n) {
         maxXor = max(maxXor, makeXor());
         return;
     }
@@ -34,7 +34,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    choose(1, 0);
+    choose(0, 0);
     cout << maxXor;
     return 0;
 }
