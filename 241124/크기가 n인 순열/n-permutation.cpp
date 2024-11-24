@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-bool visited[8];
+bool visited[9];
 vector<int> ans;
 
 void print() {
