@@ -8,15 +8,16 @@ int dis[12];
 int maxNum = 0, sum = 0;
 
 void play(int cur_num) {
+    sum = 0;
+    for (int i = 0; i< k; i++) {
+        if (mal[i] >= m)
+            sum++;
+    }
+    if (maxNum < sum) {
+        maxNum = sum;
+    }
+
     if (cur_num == n) {
-        sum = 0;
-        for (int i = 0; i< k; i++) {
-            if (mal[i] >= m)
-                sum++;
-        }
-        if (maxNum < sum) {
-            maxNum = sum;
-        }
         return;
     }
 
