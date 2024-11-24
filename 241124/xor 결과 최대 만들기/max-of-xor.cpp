@@ -17,8 +17,11 @@ int makeXor() {
 }
 
 void choose(int curNum, int cnt) {
-    if (curNum == n) {
+    if (cnt == m) {
         maxXor = max(maxXor, makeXor());
+        return;
+    }
+    if (curNum == n) {
         return;
     }
     
