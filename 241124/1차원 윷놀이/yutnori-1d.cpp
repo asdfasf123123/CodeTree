@@ -26,7 +26,7 @@ void play(int cur_num) {
             continue;
         mal[i] += dis[cur_num];
         play(cur_num + 1);
-        mal[i] += dis[cur_num];
+        mal[i] -= dis[cur_num];
 
     }
 }
